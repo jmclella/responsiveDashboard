@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --sidebar-color: #0c4a6e;
+    --card-color: #f0f9ff;
+    --sidebar-text-color: #f0f9ff;
+    --text-color: #0c4a6e;
+    --button-color: #0c4a6e;
+    --card-side-color: #0c4a6e;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: .7fr 2.5fr 1fr;
+    grid-template-rows: 100px 50px 1fr;
+    grid-template-areas: 
+        "sidebar header header"
+        "sidebar project-title announcement-title"
+        "sidebar cards announcements";
+}
+
+.sidebar-container {
+    grid-area: sidebar;
+    background-color: var(--sidebar-color);
+    color: var(--sidebar-text-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    font-size: 24px;
+}
+
+.header-container {
+    grid-area: header;
+    background-color: var(--card-color);
+    color: var(--text-color);
+}
+
+.project-title-container {
+    grid-area: project-title;
+    color: var(--text-color);
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.announcement-title-container {
+    grid-area: announcement-title;
+    color: var(--text-color);
+    margin-left: 15px;
+    margin-right: 15px
+}
+
+.card-container {
+    grid-area: cards;
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 15px;
+}
+
+.announcement-container {
+    grid-area: announcements;
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr .5fr 2fr;
+    margin: 15px;
+}
+
+.card-container > .card {
+    background: var(--card-color);
+    border-left: 8px solid var(--card-side-color);
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.sidebar-container > div {
+    padding: 25px;
+}
